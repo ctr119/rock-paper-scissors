@@ -74,10 +74,16 @@ struct ContentView: View {
     
     @ViewBuilder
     private var opponentBoard: some View {
-        Text("Opponent's points \(opponentScore)")
+        VStack {
+            Text("- Opponent's points -")
+            Text("\(opponentScore)")
+                .fontWeight(.bold)
+        }
+        .customHeadline()
         
         VStack(spacing: 10) {
-            Text("Chosen move:")
+            Text("Chosen move")
+                .font(.footnote.monospaced())
             Text("\(chosenOpponentMove)")
                 .font(.largeTitle)
         }
@@ -92,7 +98,12 @@ struct ContentView: View {
     
     @ViewBuilder
     private var playerBoard: some View {
-        Text("Your points \(playerScore)")
+        VStack {
+            Text("- Your points -")
+            Text("\(playerScore)")
+                .fontWeight(.bold)
+        }
+        .customHeadline()
         
         HStack {
             ForEach(playerMoves, id: \.self) { move in

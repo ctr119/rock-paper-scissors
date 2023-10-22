@@ -14,6 +14,7 @@
 		3E5ABAD92AE333320089A3C9 /* GameMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABAD82AE333320089A3C9 /* GameMove.swift */; };
 		3E5ABADB2AE333B50089A3C9 /* MoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABADA2AE333B50089A3C9 /* MoveButton.swift */; };
 		3E5ABADF2AE53D030089A3C9 /* BoardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABADE2AE53D030089A3C9 /* BoardModifier.swift */; };
+		3E5ABAE12AE5DB710089A3C9 /* HeadlineModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABAE02AE5DB710089A3C9 /* HeadlineModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		3E5ABAD82AE333320089A3C9 /* GameMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMove.swift; sourceTree = "<group>"; };
 		3E5ABADA2AE333B50089A3C9 /* MoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveButton.swift; sourceTree = "<group>"; };
 		3E5ABADE2AE53D030089A3C9 /* BoardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModifier.swift; sourceTree = "<group>"; };
+		3E5ABAE02AE5DB710089A3C9 /* HeadlineModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				3E5ABACA2AE3308B0089A3C9 /* RockPaperScissorsApp.swift */,
 				3E5ABACE2AE3308D0089A3C9 /* Assets.xcassets */,
 				3E5ABAD02AE3308D0089A3C9 /* Preview Content */,
+				3E5ABAE02AE5DB710089A3C9 /* HeadlineModifier.swift */,
 			);
 			path = RockPaperScissors;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E5ABAE12AE5DB710089A3C9 /* HeadlineModifier.swift in Sources */,
 				3E5ABACD2AE3308B0089A3C9 /* ContentView.swift in Sources */,
 				3E5ABACB2AE3308B0089A3C9 /* RockPaperScissorsApp.swift in Sources */,
 				3E5ABADB2AE333B50089A3C9 /* MoveButton.swift in Sources */,
