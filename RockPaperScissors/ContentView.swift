@@ -16,8 +16,8 @@ struct ContentView: View {
     @State var start = UnitPoint(x: 0, y: -2)
     @State var end = UnitPoint(x: 4, y: 0)
     private let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
-    
     private let colors = [Color(#colorLiteral(red: 0.9843137255, green: 0.9176470588, blue: 0.6470588235, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.3333333333, blue: 0.6117647059, alpha: 1)), Color(#colorLiteral(red: 0.4156862745, green: 0.7098039216, blue: 0.9294117647, alpha: 1)), Color(#colorLiteral(red: 0.337254902, green: 0.1137254902, blue: 0.7490196078, alpha: 1)), Color(#colorLiteral(red: 0.337254902, green: 0.9215686275, blue: 0.8509803922, alpha: 1))]
+    
     private let playerMoves: [GameMove] = [
         .rock, .paper, .scissors
     ]
@@ -69,27 +69,6 @@ struct ContentView: View {
             self.end = UnitPoint(x: 0, y: 2)
             self.start = UnitPoint(x: -4, y: 20)
             self.start = UnitPoint(x: 4, y: 0)
-        }
-    }
-    
-    private func restart() {
-        opponentMoveIndex = Int.random(in: 0...2)
-        opponentMove = nil
-        
-        playerScore = 0
-        opponentScore = 0
-        
-        roundsLeft = Self.maxRounds
-        roundsIndex = 1
-    }
-    
-    private var gameOverMessage: String {
-        if playerScore == opponentScore {
-            return "Draw! Both got \(playerScore) points"
-        } else if playerScore > opponentScore {
-            return "You win!\nPlayer: \(playerScore)\nOpponent: \(opponentScore)"
-        } else {
-            return "You lose!\nPlayer: \(playerScore)\nOpponent: \(opponentScore)"
         }
     }
     
@@ -146,6 +125,27 @@ struct ContentView: View {
             playerScore += 1
         } else {
             opponentScore += 1
+        }
+    }
+    
+    private func restart() {
+        opponentMoveIndex = Int.random(in: 0...2)
+        opponentMove = nil
+        
+        playerScore = 0
+        opponentScore = 0
+        
+        roundsLeft = Self.maxRounds
+        roundsIndex = 1
+    }
+    
+    private var gameOverMessage: String {
+        if playerScore == opponentScore {
+            return "Draw! Both got \(playerScore) points"
+        } else if playerScore > opponentScore {
+            return "You win!\nPlayer: \(playerScore)\nOpponent: \(opponentScore)"
+        } else {
+            return "You lose!\nPlayer: \(playerScore)\nOpponent: \(opponentScore)"
         }
     }
 }
