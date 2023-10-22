@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MoveButton: View {
+    private let maxWidth: CGFloat = 100
     private let gradient: RadialGradient = .init(colors: [.white, .gray], center: .center, startRadius: 0, endRadius: 45)
     
     let move: GameMove
@@ -10,10 +11,16 @@ struct MoveButton: View {
     var body: some View {
         Button(move.string, action: action)
             .font(.largeTitle)
-            .frame(width: width, height: width)
+            .frame(width: dimensions.width, height: dimensions.height)
             .background(gradient)
             .clipShape(RoundedRectangle(cornerSize: .init(width: 10, height: 10)))
             .shadow(radius: 5)
+    }
+    
+    private var dimensions: CGSize {
+        let finalWidth = width <= maxWidth ? width : maxWidth
+        
+        return .init(width: finalWidth, height: finalWidth)
     }
 }
 
