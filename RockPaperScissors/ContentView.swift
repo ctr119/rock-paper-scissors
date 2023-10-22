@@ -26,6 +26,7 @@ struct ContentView: View {
                     
                     Text("Move: 1 / 10")
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
         .padding()
