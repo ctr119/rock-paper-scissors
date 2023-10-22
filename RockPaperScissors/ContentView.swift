@@ -35,14 +35,14 @@ struct ContentView: View {
                 
                 Spacer()
                 Spacer()
-                Spacer()
                 
                 playerBoard
                     .boardStyle()
                 
                 Spacer()
                 
-                Text("Round: \(roundsIndex) of \(Self.maxRounds)")
+                Text("Round \(roundsIndex) of \(Self.maxRounds)")
+                    .font(.footnote.monospaced())
             }
             .padding()
         }
