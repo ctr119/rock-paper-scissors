@@ -24,22 +24,8 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: colors),
-                           startPoint: start,
-                           endPoint: end)
-            .edgesIgnoringSafeArea(.all)
-            .animation(
-                .easeInOut(duration: 10)
-                .repeatForever(autoreverses: true)
-                .speed(0.5),
-                value: start
-            )
-            .onReceive(timer) { _ in
-                self.start = UnitPoint(x: 4, y: 0)
-                self.end = UnitPoint(x: 0, y: 2)
-                self.start = UnitPoint(x: -4, y: 20)
-                self.start = UnitPoint(x: 4, y: 0)
-            }
+            animatedBackground
+                .blur(radius: 80)
             
             VStack {
                 Spacer()
@@ -64,6 +50,25 @@ struct ContentView: View {
             Button("Start again", action: restart)
         } message: {
             Text(gameOverMessage)
+        }
+    }
+    
+    private var animatedBackground: some View {
+        LinearGradient(gradient: Gradient(colors: colors),
+                       startPoint: start,
+                       endPoint: end)
+        .edgesIgnoringSafeArea(.all)
+        .animation(
+            .easeInOut(duration: 10)
+            .repeatForever(autoreverses: true)
+            .speed(0.5),
+            value: start
+        )
+        .onReceive(timer) { _ in
+            self.start = UnitPoint(x: 4, y: 0)
+            self.end = UnitPoint(x: 0, y: 2)
+            self.start = UnitPoint(x: -4, y: 20)
+            self.start = UnitPoint(x: 4, y: 0)
         }
     }
     
