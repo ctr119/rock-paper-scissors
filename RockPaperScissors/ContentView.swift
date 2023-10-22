@@ -1,7 +1,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var appsMove = Int.random(in: 0...2)
+    @State private var opponentMoveIndex = Int.random(in: 0...2)
+    @State private var opponentScore = 0
+    @State private var playerScore = 0
     
     private let playerButtonsSpacing: CGFloat = 20
     private let playerMoves: [GameMove] = [
@@ -14,7 +16,7 @@ struct ContentView: View {
                 VStack {
                     Spacer()
                     
-                    Text("Opponent's points go here")
+                    Text("Opponent's points \(opponentScore)")
                     
                     Spacer()
                     Spacer()
@@ -34,7 +36,7 @@ struct ContentView: View {
     
     @ViewBuilder
     private func playerBoard(_ screen: GeometryProxy) -> some View {
-        Text("Your points go here")
+        Text("Your points \(playerScore)")
         
         Spacer()
         
@@ -49,8 +51,17 @@ struct ContentView: View {
         }
     }
     
-    private func didTapOnMoveButton(_ gameMove: GameMove) {
-        print("The player tapped: \(gameMove.string)")
+    private func didTapOnMoveButton(_ playerMove: GameMove) {
+        guard let opponentMove = GameMove(rawValue: opponentMoveIndex),
+              let playerWins = playerMove.wins(opponentMove) else {
+            return
+        }
+        
+        if playerWins {
+            playerScore += 1
+        } else {
+            opponentScore += 1
+        }
     }
 }
 

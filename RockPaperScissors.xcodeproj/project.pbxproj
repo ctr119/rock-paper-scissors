@@ -55,12 +55,12 @@
 		3E5ABAC92AE3308B0089A3C9 /* RockPaperScissors */ = {
 			isa = PBXGroup;
 			children = (
-				3E5ABACA2AE3308B0089A3C9 /* RockPaperScissorsApp.swift */,
 				3E5ABACC2AE3308B0089A3C9 /* ContentView.swift */,
-				3E5ABACE2AE3308D0089A3C9 /* Assets.xcassets */,
-				3E5ABAD02AE3308D0089A3C9 /* Preview Content */,
 				3E5ABAD82AE333320089A3C9 /* GameMove.swift */,
 				3E5ABADA2AE333B50089A3C9 /* MoveButton.swift */,
+				3E5ABACA2AE3308B0089A3C9 /* RockPaperScissorsApp.swift */,
+				3E5ABACE2AE3308D0089A3C9 /* Assets.xcassets */,
+				3E5ABAD02AE3308D0089A3C9 /* Preview Content */,
 			);
 			path = RockPaperScissors;
 			sourceTree = "<group>";

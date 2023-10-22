@@ -15,4 +15,21 @@ enum GameMove: Int {
             return "✂️"
         }
     }
+    
+    func wins(_ move: GameMove) -> Bool? {
+        switch (self, move) {
+        case (.paper, .rock),
+            (.rock, .scissors),
+            (.scissors, .paper):
+            return true
+        
+        case (.paper, .paper),
+            (.rock, .rock),
+            (.scissors, .scissors):
+            return nil
+            
+        case (_, _):
+            return false
+        }
+    }
 }
