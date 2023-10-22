@@ -4,6 +4,7 @@ struct ContentView: View {
     private static let maxRounds = 4
     
     @State private var opponentMoveIndex = Int.random(in: 0...2)
+    @State private var opponentMove: GameMove? = nil
     @State private var opponentScore = 0
     @State private var playerScore = 0
     @State private var roundsLeft = Self.maxRounds
@@ -22,7 +23,7 @@ struct ContentView: View {
                 VStack {
                     Spacer()
                     
-                    Text("Opponent's points \(opponentScore)")
+                    opponentBoard(geometry)
                     
                     Spacer()
                     Spacer()
@@ -47,6 +48,7 @@ struct ContentView: View {
     
     private func restart() {
         opponentMoveIndex = Int.random(in: 0...2)
+        opponentMove = nil
         
         playerScore = 0
         opponentScore = 0
@@ -63,6 +65,26 @@ struct ContentView: View {
         } else {
             return "You lose!\nPlayer: \(playerScore)\nOpponent: \(opponentScore)"
         }
+    }
+    
+    @ViewBuilder
+    private func opponentBoard(_ screen: GeometryProxy) -> some View {
+        VStack(spacing: 40) {
+            Text("Opponent's points \(opponentScore)")
+                
+            VStack(spacing: 10) {
+                Text("Chosen move:")
+                Text("\(chosenOpponentMove)")
+                    .font(.largeTitle)
+            }
+        }
+    }
+    
+    private var chosenOpponentMove: String {
+        if let opponentMove {
+            return opponentMove.string
+        }
+        return "?"
     }
     
     @ViewBuilder
@@ -94,7 +116,8 @@ struct ContentView: View {
             }
         }
         
-        guard let opponentMove = GameMove(rawValue: opponentMoveIndex),
+        opponentMove = GameMove(rawValue: opponentMoveIndex)
+        guard let opponentMove,
               let playerWins = playerMove.wins(opponentMove) else {
             return
         }
