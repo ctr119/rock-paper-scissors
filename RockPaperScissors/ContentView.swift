@@ -23,7 +23,7 @@ struct ContentView: View {
                 VStack {
                     Spacer()
                     
-                    opponentBoard(geometry)
+                    opponentBoard()
                     
                     Spacer()
                     Spacer()
@@ -67,8 +67,8 @@ struct ContentView: View {
         }
     }
     
-    @ViewBuilder
-    private func opponentBoard(_ screen: GeometryProxy) -> some View {
+    private func opponentBoard() -> some View {
+        // TODO: Think about moving this stack into the custom modifier
         VStack(spacing: 40) {
             Text("Opponent's points \(opponentScore)")
                 
@@ -78,6 +78,7 @@ struct ContentView: View {
                     .font(.largeTitle)
             }
         }
+        .boardStyle()
     }
     
     private var chosenOpponentMove: String {

@@ -13,6 +13,7 @@
 		3E5ABAD22AE3308D0089A3C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5ABAD12AE3308D0089A3C9 /* Preview Assets.xcassets */; };
 		3E5ABAD92AE333320089A3C9 /* GameMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABAD82AE333320089A3C9 /* GameMove.swift */; };
 		3E5ABADB2AE333B50089A3C9 /* MoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABADA2AE333B50089A3C9 /* MoveButton.swift */; };
+		3E5ABADF2AE53D030089A3C9 /* BoardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABADE2AE53D030089A3C9 /* BoardModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		3E5ABAD12AE3308D0089A3C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3E5ABAD82AE333320089A3C9 /* GameMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMove.swift; sourceTree = "<group>"; };
 		3E5ABADA2AE333B50089A3C9 /* MoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveButton.swift; sourceTree = "<group>"; };
+		3E5ABADE2AE53D030089A3C9 /* BoardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		3E5ABAC92AE3308B0089A3C9 /* RockPaperScissors */ = {
 			isa = PBXGroup;
 			children = (
+				3E5ABADE2AE53D030089A3C9 /* BoardModifier.swift */,
 				3E5ABACC2AE3308B0089A3C9 /* ContentView.swift */,
 				3E5ABAD82AE333320089A3C9 /* GameMove.swift */,
 				3E5ABADA2AE333B50089A3C9 /* MoveButton.swift */,
@@ -147,6 +150,7 @@
 				3E5ABACB2AE3308B0089A3C9 /* RockPaperScissorsApp.swift in Sources */,
 				3E5ABADB2AE333B50089A3C9 /* MoveButton.swift in Sources */,
 				3E5ABAD92AE333320089A3C9 /* GameMove.swift in Sources */,
+				3E5ABADF2AE53D030089A3C9 /* BoardModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
