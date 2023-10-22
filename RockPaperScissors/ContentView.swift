@@ -12,7 +12,6 @@ struct ContentView: View {
     
     @State private var isGameOver = false
     
-    private let playerButtonsSpacing: CGFloat = 20
     private let playerMoves: [GameMove] = [
         .rock, .paper, .scissors
     ]
@@ -22,12 +21,14 @@ struct ContentView: View {
             Spacer()
             
             opponentBoard
+                .boardStyle()
             
             Spacer()
             Spacer()
             Spacer()
             
             playerBoard
+                .boardStyle()
             
             Spacer()
             
@@ -62,18 +63,15 @@ struct ContentView: View {
         }
     }
     
+    @ViewBuilder
     private var opponentBoard: some View {
-        // TODO: Think about moving this stack into the custom modifier
-        VStack(spacing: 40) {
-            Text("Opponent's points \(opponentScore)")
-                
-            VStack(spacing: 10) {
-                Text("Chosen move:")
-                Text("\(chosenOpponentMove)")
-                    .font(.largeTitle)
-            }
+        Text("Opponent's points \(opponentScore)")
+        
+        VStack(spacing: 10) {
+            Text("Chosen move:")
+            Text("\(chosenOpponentMove)")
+                .font(.largeTitle)
         }
-        .boardStyle()
     }
     
     private var chosenOpponentMove: String {
@@ -85,18 +83,15 @@ struct ContentView: View {
     
     @ViewBuilder
     private var playerBoard: some View {
-        VStack {
-            Text("Your points \(playerScore)")
-            
-            HStack(spacing: playerButtonsSpacing) {
-                ForEach(playerMoves, id: \.self) { move in
-                    MoveButton(move: move, action: {
-                        didTapOnMoveButton(move)
-                    })
-                }
+        Text("Your points \(playerScore)")
+        
+        HStack {
+            ForEach(playerMoves, id: \.self) { move in
+                MoveButton(move: move, action: {
+                    didTapOnMoveButton(move)
+                })
             }
         }
-        .boardStyle()
     }
     
     private func didTapOnMoveButton(_ playerMove: GameMove) {

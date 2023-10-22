@@ -1,17 +1,21 @@
 import SwiftUI
 
 struct BoardModifier: ViewModifier {
+    let spacing: CGFloat
+    
     func body(content: Content) -> some View {
-        content
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(.regularMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
+        VStack(spacing: spacing) {
+            content
+        }
+        .frame(maxWidth: .infinity)
+        .padding()
+        .background(.thinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
 
 extension View {
-    func boardStyle() -> some View {
-        self.modifier(BoardModifier())
+    func boardStyle(spacing: CGFloat = 40) -> some View {
+        self.modifier(BoardModifier(spacing: spacing))
     }
 }
