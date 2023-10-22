@@ -21,13 +21,13 @@ struct ContentView: View {
         VStack {
             Spacer()
             
-            opponentBoard()
+            opponentBoard
             
             Spacer()
             Spacer()
             Spacer()
             
-            playerBoard()
+            playerBoard
             
             Spacer()
             
@@ -62,7 +62,7 @@ struct ContentView: View {
         }
     }
     
-    private func opponentBoard() -> some View {
+    private var opponentBoard: some View {
         // TODO: Think about moving this stack into the custom modifier
         VStack(spacing: 40) {
             Text("Opponent's points \(opponentScore)")
@@ -84,7 +84,7 @@ struct ContentView: View {
     }
     
     @ViewBuilder
-    private func playerBoard() -> some View {
+    private var playerBoard: some View {
         VStack {
             Text("Your points \(playerScore)")
             
