@@ -152,11 +152,11 @@ struct ContentView: View {
     
     private var gameOverMessage: String {
         if playerScore == opponentScore {
-            return "Draw! Both got \(playerScore) points"
+            return "Draw! 🫠\nBoth got \(playerScore) points"
         } else if playerScore > opponentScore {
-            return "You win!\nPlayer: \(playerScore)\nOpponent: \(opponentScore)"
+            return "You won! 🥳\nPlayer: \(playerScore)\nOpponent: \(opponentScore)"
         } else {
-            return "You lose!\nPlayer: \(playerScore)\nOpponent: \(opponentScore)"
+            return "You lost! 😵\nPlayer: \(playerScore)\nOpponent: \(opponentScore)"
         }
     }
 }
