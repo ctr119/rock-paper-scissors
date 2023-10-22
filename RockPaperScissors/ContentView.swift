@@ -12,29 +12,37 @@ struct ContentView: View {
     
     @State private var isGameOver = false
     
+    private let colors = [Color(#colorLiteral(red: 0.9843137255, green: 0.9176470588, blue: 0.6470588235, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.3333333333, blue: 0.6117647059, alpha: 1)), Color(#colorLiteral(red: 0.4156862745, green: 0.7098039216, blue: 0.9294117647, alpha: 1)), Color(#colorLiteral(red: 0.337254902, green: 0.1137254902, blue: 0.7490196078, alpha: 1)), Color(#colorLiteral(red: 0.337254902, green: 0.9215686275, blue: 0.8509803922, alpha: 1))]
     private let playerMoves: [GameMove] = [
         .rock, .paper, .scissors
     ]
     
     var body: some View {
-        VStack {
-            Spacer()
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: colors),
+                           startPoint: .topLeading,
+                           endPoint: .bottomTrailing)
+            .edgesIgnoringSafeArea(.all)
             
-            opponentBoard
-                .boardStyle()
-            
-            Spacer()
-            Spacer()
-            Spacer()
-            
-            playerBoard
-                .boardStyle()
-            
-            Spacer()
-            
-            Text("Round: \(roundsIndex) of \(Self.maxRounds)")
+            VStack {
+                Spacer()
+                
+                opponentBoard
+                    .boardStyle()
+                
+                Spacer()
+                Spacer()
+                Spacer()
+                
+                playerBoard
+                    .boardStyle()
+                
+                Spacer()
+                
+                Text("Round: \(roundsIndex) of \(Self.maxRounds)")
+            }
+            .padding()
         }
-        .padding()
         .alert("Finish!", isPresented: $isGameOver) {
             Button("Start again", action: restart)
         } message: {
