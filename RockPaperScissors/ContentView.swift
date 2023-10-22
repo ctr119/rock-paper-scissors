@@ -13,18 +13,14 @@ struct ContentView: View {
             GeometryReader { geometry in
                 VStack {
                     Spacer()
+                    
+                    Text("Opponent's points go here")
+                    
+                    Spacer()
+                    Spacer()
                     Spacer()
                     
-                    Text("Your points go here")
-                    
-                    Spacer()
-                    
-                    let buttonsWidth = (geometry.size.width - playerButtonsSpacing * 2.0) / CGFloat(playerMoves.count)
-                    HStack(spacing: playerButtonsSpacing) {
-                        ForEach(playerMoves, id: \.self) { move in
-                            MoveButton(move: move, width: buttonsWidth, action: {})
-                        }
-                    }
+                    playerBoard(geometry)
                     
                     Spacer()
                     
@@ -35,8 +31,25 @@ struct ContentView: View {
         .padding()
     }
     
-    private func didTapOnMoveButton() {
+    @ViewBuilder
+    private func playerBoard(_ screen: GeometryProxy) -> some View {
+        Text("Your points go here")
         
+        Spacer()
+        
+        let effectiveWidth = screen.size.width - playerButtonsSpacing * 2.0
+        let buttonsWidth = effectiveWidth / CGFloat(playerMoves.count)
+        HStack(spacing: playerButtonsSpacing) {
+            ForEach(playerMoves, id: \.self) { move in
+                MoveButton(move: move, width: buttonsWidth, action: {
+                    didTapOnMoveButton(move)
+                })
+            }
+        }
+    }
+    
+    private func didTapOnMoveButton(_ gameMove: GameMove) {
+        print("The player tapped: \(gameMove.string)")
     }
 }
 
