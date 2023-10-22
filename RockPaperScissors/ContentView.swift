@@ -19,24 +19,19 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            GeometryReader { geometry in
-                VStack {
-                    Spacer()
-                    
-                    opponentBoard()
-                    
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    
-                    playerBoard(geometry)
-                    
-                    Spacer()
-                    
-                    Text("Round: \(roundsIndex) of \(Self.maxRounds)")
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
+            Spacer()
+            
+            opponentBoard()
+            
+            Spacer()
+            Spacer()
+            Spacer()
+            
+            playerBoard()
+            
+            Spacer()
+            
+            Text("Round: \(roundsIndex) of \(Self.maxRounds)")
         }
         .padding()
         .alert("Finish!", isPresented: $isGameOver) {
@@ -89,20 +84,19 @@ struct ContentView: View {
     }
     
     @ViewBuilder
-    private func playerBoard(_ screen: GeometryProxy) -> some View {
-        Text("Your points \(playerScore)")
-        
-        Spacer()
-        
-        let effectiveWidth = screen.size.width - playerButtonsSpacing * 2.0
-        let buttonsWidth = effectiveWidth / CGFloat(playerMoves.count)
-        HStack(spacing: playerButtonsSpacing) {
-            ForEach(playerMoves, id: \.self) { move in
-                MoveButton(move: move, width: buttonsWidth, action: {
-                    didTapOnMoveButton(move)
-                })
+    private func playerBoard() -> some View {
+        VStack {
+            Text("Your points \(playerScore)")
+            
+            HStack(spacing: playerButtonsSpacing) {
+                ForEach(playerMoves, id: \.self) { move in
+                    MoveButton(move: move, action: {
+                        didTapOnMoveButton(move)
+                    })
+                }
             }
         }
+        .boardStyle()
     }
     
     private func didTapOnMoveButton(_ playerMove: GameMove) {
