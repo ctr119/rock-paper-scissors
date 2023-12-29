@@ -52,12 +52,23 @@ class GameViewModel: ObservableObject {
         }
     }
     
+    // TODO: Think about turning this into an UseCase
     private func generateBotMove() -> GameMove {
         let upperBound = GameMove.allCases.count - 1
         let moveIndex = Int.random(in: 0...upperBound)
         let move = GameMove(rawValue: moveIndex)
         
         return move ?? .rock
+    }
+    
+    func restart() {
+        botMove = nil
+        
+        playerScore = 0
+        botScore = 0
+        
+        roundsLeft = Self.maxRounds
+        roundsIndex = 1
     }
 }
 

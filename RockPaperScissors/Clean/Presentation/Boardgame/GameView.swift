@@ -143,6 +143,7 @@ struct GameView: View {
         }
     }
     
+    // Migrated ✅
     private func restart() {
         opponentMoveIndex = Int.random(in: 0...2)
         opponentMove = nil
