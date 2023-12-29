@@ -32,22 +32,32 @@ class GameViewModel: ObservableObject {
             roundsLeft -= 1
             
             if roundsLeft > 0 {
-                // This is where the bot were already choosing its next move
-                // opponentMoveIndex = Int.random(in: 0...2)
                 roundsIndex += 1
             } else {
                 isGameOver = true
             }
         }
         
-        let botMove = GameMove.paper // TODO: Ask the bot to choose
-        let playerWins = playerMove.wins(botMove)
+        let botMove = generateBotMove()
         
-        if let playerWins, playerWins {
+        guard let playerWins = playerMove.wins(botMove) else {
+            // TODO: Draw! Let's try to improve here
+            return
+        }
+        
+        if playerWins {
             playerScore += 1
         } else {
             botScore += 1
         }
+    }
+    
+    private func generateBotMove() -> GameMove {
+        let upperBound = GameMove.allCases.count - 1
+        let moveIndex = Int.random(in: 0...upperBound)
+        let move = GameMove(rawValue: moveIndex)
+        
+        return move ?? .rock
     }
 }
 
