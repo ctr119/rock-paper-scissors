@@ -72,6 +72,7 @@ struct GameView: View {
         }
     }
     
+    // Migrated ✅
     @ViewBuilder
     private var opponentBoard: some View {
         VStack {
@@ -89,6 +90,7 @@ struct GameView: View {
         }
     }
     
+    // Migrated ✅
     private var chosenOpponentMove: String {
         if let opponentMove {
             return opponentMove.string
