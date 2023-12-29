@@ -10,6 +10,7 @@
 		205713D02B3ED968009CF265 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205713CF2B3ED968009CF265 /* GameViewModel.swift */; };
 		205713D92B3EDCA0009CF265 /* PlayerBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205713D82B3EDCA0009CF265 /* PlayerBoardView.swift */; };
 		205713DD2B3F075B009CF265 /* BotBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205713DC2B3F075B009CF265 /* BotBoardView.swift */; };
+		205713E02B3F84C0009CF265 /* Modifier+GameOverAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205713DF2B3F84C0009CF265 /* Modifier+GameOverAlert.swift */; };
 		3E5ABACB2AE3308B0089A3C9 /* RockPaperScissorsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABACA2AE3308B0089A3C9 /* RockPaperScissorsApp.swift */; };
 		3E5ABACD2AE3308B0089A3C9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABACC2AE3308B0089A3C9 /* GameView.swift */; };
 		3E5ABACF2AE3308D0089A3C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5ABACE2AE3308D0089A3C9 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		205713CF2B3ED968009CF265 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		205713D82B3EDCA0009CF265 /* PlayerBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBoardView.swift; sourceTree = "<group>"; };
 		205713DC2B3F075B009CF265 /* BotBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotBoardView.swift; sourceTree = "<group>"; };
+		205713DF2B3F84C0009CF265 /* Modifier+GameOverAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Modifier+GameOverAlert.swift"; sourceTree = "<group>"; };
 		3E5ABAC72AE3308B0089A3C9 /* RockPaperScissors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RockPaperScissors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E5ABACA2AE3308B0089A3C9 /* RockPaperScissorsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsApp.swift; sourceTree = "<group>"; };
 		3E5ABACC2AE3308B0089A3C9 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				205713CE2B3ED941009CF265 /* Boardgame */,
 				205713D52B3EDB77009CF265 /* Boards */,
+				205713DE2B3F849F009CF265 /* Modifiers */,
 				205713D32B3EDA0A009CF265 /* UI */,
 			);
 			path = Presentation;
@@ -115,6 +118,14 @@
 				205713D82B3EDCA0009CF265 /* PlayerBoardView.swift */,
 			);
 			path = Boards;
+			sourceTree = "<group>";
+		};
+		205713DE2B3F849F009CF265 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				205713DF2B3F84C0009CF265 /* Modifier+GameOverAlert.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		3E5ABABE2AE3308B0089A3C9 = {
@@ -227,6 +238,7 @@
 				205713DD2B3F075B009CF265 /* BotBoardView.swift in Sources */,
 				3E5ABACD2AE3308B0089A3C9 /* GameView.swift in Sources */,
 				3E5ABACB2AE3308B0089A3C9 /* RockPaperScissorsApp.swift in Sources */,
+				205713E02B3F84C0009CF265 /* Modifier+GameOverAlert.swift in Sources */,
 				3E5ABADB2AE333B50089A3C9 /* MoveButton.swift in Sources */,
 				3E5ABAD92AE333320089A3C9 /* GameMove.swift in Sources */,
 				3E5ABADF2AE53D030089A3C9 /* BoardModifier.swift in Sources */,

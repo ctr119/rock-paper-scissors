@@ -46,11 +46,9 @@ struct GameView: View {
             }
             .padding()
         }
-        .alert("Finish!", isPresented: $isGameOver) {
-            Button("Start again", action: restart)
-        } message: {
-            Text(gameOverMessage)
-        }
+        .gameOver(alert: .init(title: "Finish!", message: gameOverMessage),
+                  when: $isGameOver,
+                  action: restart)
     }
     
     private var animatedBackground: some View {
