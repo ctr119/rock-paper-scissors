@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		205713D02B3ED968009CF265 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205713CF2B3ED968009CF265 /* GameViewModel.swift */; };
+		205713D92B3EDCA0009CF265 /* PlayerBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205713D82B3EDCA0009CF265 /* PlayerBoardView.swift */; };
 		3E5ABACB2AE3308B0089A3C9 /* RockPaperScissorsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABACA2AE3308B0089A3C9 /* RockPaperScissorsApp.swift */; };
 		3E5ABACD2AE3308B0089A3C9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABACC2AE3308B0089A3C9 /* GameView.swift */; };
 		3E5ABACF2AE3308D0089A3C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5ABACE2AE3308D0089A3C9 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		205713CF2B3ED968009CF265 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		205713D82B3EDCA0009CF265 /* PlayerBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBoardView.swift; sourceTree = "<group>"; };
 		3E5ABAC72AE3308B0089A3C9 /* RockPaperScissors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RockPaperScissors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E5ABACA2AE3308B0089A3C9 /* RockPaperScissorsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsApp.swift; sourceTree = "<group>"; };
 		3E5ABACC2AE3308B0089A3C9 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -54,20 +56,21 @@
 		205713CD2B3ED923009CF265 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				205713D32B3EDA0A009CF265 /* CommonUI */,
-				205713CE2B3ED941009CF265 /* Game */,
+				205713CE2B3ED941009CF265 /* Boardgame */,
+				205713D52B3EDB77009CF265 /* Players */,
+				205713D32B3EDA0A009CF265 /* UI */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		205713CE2B3ED941009CF265 /* Game */ = {
+		205713CE2B3ED941009CF265 /* Boardgame */ = {
 			isa = PBXGroup;
 			children = (
 				3E5ABACC2AE3308B0089A3C9 /* GameView.swift */,
 				205713CF2B3ED968009CF265 /* GameViewModel.swift */,
 				205713D42B3EDA38009CF265 /* Modifiers */,
 			);
-			path = Game;
+			path = Boardgame;
 			sourceTree = "<group>";
 		};
 		205713D12B3ED9F8009CF265 /* Domain */ = {
@@ -86,12 +89,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		205713D32B3EDA0A009CF265 /* CommonUI */ = {
+		205713D32B3EDA0A009CF265 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				3E5ABADA2AE333B50089A3C9 /* MoveButton.swift */,
 			);
-			path = CommonUI;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		205713D42B3EDA38009CF265 /* Modifiers */ = {
@@ -101,6 +104,30 @@
 				3E5ABAE02AE5DB710089A3C9 /* HeadlineModifier.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		205713D52B3EDB77009CF265 /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				205713D72B3EDBCC009CF265 /* BotPlayer */,
+				205713D62B3EDBC6009CF265 /* MainPlayer */,
+			);
+			path = Players;
+			sourceTree = "<group>";
+		};
+		205713D62B3EDBC6009CF265 /* MainPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				205713D82B3EDCA0009CF265 /* PlayerBoardView.swift */,
+			);
+			path = MainPlayer;
+			sourceTree = "<group>";
+		};
+		205713D72B3EDBCC009CF265 /* BotPlayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BotPlayer;
 			sourceTree = "<group>";
 		};
 		3E5ABABE2AE3308B0089A3C9 = {
@@ -208,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205713D92B3EDCA0009CF265 /* PlayerBoardView.swift in Sources */,
 				3E5ABAE12AE5DB710089A3C9 /* HeadlineModifier.swift in Sources */,
 				3E5ABACD2AE3308B0089A3C9 /* GameView.swift in Sources */,
 				3E5ABACB2AE3308B0089A3C9 /* RockPaperScissorsApp.swift in Sources */,

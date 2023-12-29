@@ -126,6 +126,7 @@ struct GameView: View {
             }
         }
         
+        // TODO: BotPlayerViewModel responsibility
         opponentMove = GameMove(rawValue: opponentMoveIndex)
         guard let opponentMove,
               let playerWins = playerMove.wins(opponentMove) else {

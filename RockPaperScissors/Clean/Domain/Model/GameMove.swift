@@ -1,6 +1,6 @@
 import Foundation
 
-enum GameMove: Int {
+enum GameMove: Int, CaseIterable {
     case paper = 0
     case rock
     case scissors
