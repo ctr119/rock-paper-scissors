@@ -13,7 +13,7 @@ import SwiftUI
 /// - final winner
 
 class GameViewModel: ObservableObject {
-    private static let maxRounds = 4
+    static let maxRounds = 4
     
     @Published var playerScore = 0
     @Published var botScore = 0
@@ -41,6 +41,7 @@ class GameViewModel: ObservableObject {
         }
         
         let botMove = generateBotMove()
+        self.botMove = botMove
         
         guard let playerWins = playerMove.wins(botMove) else {
             // TODO: Draw! Let's try to improve here
@@ -64,6 +65,8 @@ class GameViewModel: ObservableObject {
     }
     
     private func buildGameOverMessage() -> String {
+        // TODO: Add the draws
+        
         if playerScore == botScore {
             return "Draw! 🫠\nBoth got \(playerScore) points"
         } else if playerScore > botScore {
