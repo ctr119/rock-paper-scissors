@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct GameView: View {
     private static let maxRounds = 4
     
     @State private var opponentMoveIndex = Int.random(in: 0...2)
@@ -163,6 +163,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GameView()
     }
 }
