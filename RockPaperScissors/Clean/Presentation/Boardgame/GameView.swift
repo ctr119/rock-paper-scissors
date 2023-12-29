@@ -153,6 +153,7 @@ struct GameView: View {
         roundsIndex = 1
     }
     
+    // Migrated ✅
     private var gameOverMessage: String {
         if playerScore == opponentScore {
             return "Draw! 🫠\nBoth got \(playerScore) points"

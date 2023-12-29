@@ -18,10 +18,11 @@ class GameViewModel: ObservableObject {
     @Published var playerScore = 0
     @Published var botScore = 0
     @Published var botMove: GameMove?
+    @Published var isGameOver = false
     
     private(set) var roundsLeft: Int
     private(set) var roundsIndex = 1
-    private(set) var isGameOver = false
+    private(set) var gameOverMessage: String = ""
     
     init() {
         self.roundsLeft = Self.maxRounds
@@ -34,6 +35,7 @@ class GameViewModel: ObservableObject {
             if roundsLeft > 0 {
                 roundsIndex += 1
             } else {
+                gameOverMessage = buildGameOverMessage()
                 isGameOver = true
             }
         }
@@ -61,6 +63,16 @@ class GameViewModel: ObservableObject {
         return move ?? .rock
     }
     
+    private func buildGameOverMessage() -> String {
+        if playerScore == botScore {
+            return "Draw! 🫠\nBoth got \(playerScore) points"
+        } else if playerScore > botScore {
+            return "You won! 🥳\nPlayer: \(playerScore)\nOpponent: \(botScore)"
+        } else {
+            return "You lost! 😵\nPlayer: \(playerScore)\nOpponent: \(botScore)"
+        }
+    }
+    
     func restart() {
         botMove = nil
         
@@ -69,6 +81,8 @@ class GameViewModel: ObservableObject {
         
         roundsLeft = Self.maxRounds
         roundsIndex = 1
+        
+        gameOverMessage = ""
     }
 }
 
