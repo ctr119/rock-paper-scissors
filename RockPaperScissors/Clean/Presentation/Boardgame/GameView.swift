@@ -96,6 +96,7 @@ struct GameView: View {
         return "?"
     }
     
+    // Migrated ✅
     @ViewBuilder
     private var playerBoard: some View {
         VStack {
@@ -114,6 +115,7 @@ struct GameView: View {
         }
     }
     
+    // Migrated ✅
     private func didTapOnMoveButton(_ playerMove: GameMove) {
         defer {
             roundsLeft -= 1
