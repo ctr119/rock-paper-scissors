@@ -16,7 +16,8 @@ class GameViewModel: ObservableObject {
     private static let maxRounds = 4
     
     @Published var playerScore = 0
-    var botScore = 0 // (?)
+    @Published var botScore = 0
+    @Published var botMove: GameMove?
     
     private(set) var roundsLeft: Int
     private(set) var roundsIndex = 1
