@@ -16,6 +16,7 @@ class GameViewModel: ObservableObject {
     static let maxRounds = 4
     
     @Published var playerScore = 0
+    @Published var shouldClearPlayerButtons = false
     @Published var botScore = 0
     @Published var botMove: GameMove?
     @Published var isGameOver = false
@@ -30,6 +31,8 @@ class GameViewModel: ObservableObject {
     
     func player(move playerMove: GameMove) {
         defer {
+            shouldClearPlayerButtons = true
+            
             roundsLeft -= 1
             
             if roundsLeft > 0 {

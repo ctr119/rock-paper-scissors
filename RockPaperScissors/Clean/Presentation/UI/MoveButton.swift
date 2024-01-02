@@ -1,9 +1,8 @@
 import SwiftUI
 
 struct MoveButton: View {
-    @State private var selected: Bool = false
-    
     let move: GameMove
+    @Binding var selected: Bool
     let action: () -> Void
     
     var body: some View {
@@ -30,17 +29,19 @@ struct MoveButton: View {
 }
 
 struct MoveButton_Previews: PreviewProvider {
+    @State static var selected = false
+    
     static var previews: some View {
         VStack(spacing: 40) {
             HStack(spacing: 20) {
-                MoveButton(move: .rock, action: {})
-                MoveButton(move: .paper, action: {})
-                MoveButton(move: .scissors, action: {})
+                MoveButton(move: .rock, selected: Self.$selected, action: {})
+                MoveButton(move: .paper, selected: Self.$selected, action: {})
+                MoveButton(move: .scissors, selected: Self.$selected, action: {})
             }
             
             HStack(spacing: 20) {
-                MoveButton(move: .scissors, action: {})
-                MoveButton(move: .scissors, action: {})
+                MoveButton(move: .scissors, selected: Self.$selected, action: {})
+                MoveButton(move: .scissors, selected: Self.$selected, action: {})
             }
         }
     }
