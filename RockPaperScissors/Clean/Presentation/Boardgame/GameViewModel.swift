@@ -31,7 +31,8 @@ class GameViewModel: ObservableObject {
     
     func player(move playerMove: GameMove) {
         defer {
-            shouldClearPlayerButtons = true
+            // Trigger the event for alawys clearing the player's buttons
+            shouldClearPlayerButtons.toggle()
             
             roundsLeft -= 1
             
