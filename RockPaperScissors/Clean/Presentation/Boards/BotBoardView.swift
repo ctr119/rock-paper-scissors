@@ -28,6 +28,11 @@ struct BotBoardView: View {
                     .frame(minWidth: 70)
                     .background(.gray.opacity(0.8))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .rotation3DEffect(
+                        viewModel.botMove != nil ? .degrees(360) : .degrees(0),
+                        axis: (x: 0.0, y: 1.0, z: 0.0)
+                    )
+                    .animation(.bouncy, value: viewModel.botMove)
             }
         }
     }
