@@ -30,6 +30,7 @@ struct PlayerBoardView: View {
                                action: {
                         viewModel.player(move: move)
                     })
+                    // TODO: Avoid multiple taps
                 }
             }
         }

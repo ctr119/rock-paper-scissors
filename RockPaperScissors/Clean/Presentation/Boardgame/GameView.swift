@@ -39,6 +39,11 @@ struct GameView: View {
             VStack {
                 if let winner = viewModel.roundWinner {
                     Text(winner)
+                        .font(
+                            .headline
+                            .lowercaseSmallCaps()
+                            .weight(.regular)
+                        )
                         .transition(.push(from: .top))
                 }
             }
@@ -69,8 +74,9 @@ struct GameView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameView()
-    }
+#Preview {
+    let viewModelMock: GameViewModel = .mock
+    viewModelMock.roundWinner = "The Mock Wins"
+    
+    return GameView(viewModel: viewModelMock)
 }
