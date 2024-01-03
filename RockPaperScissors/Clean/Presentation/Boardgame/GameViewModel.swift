@@ -42,7 +42,7 @@ class GameViewModel: ObservableObject {
         
         guard let playerWins = playerMove.wins(botMove) else {
             // TODO: Draw! Let's try to improve here
-            roundWinner = "DRAW!"
+            roundWinner = "🔥 DRAW 🔥"
             return
         }
         
@@ -52,7 +52,7 @@ class GameViewModel: ObservableObject {
             botScore += 1
         }
         
-        roundWinner = playerWins ? "Player wins!" : "Opponent wins"
+        roundWinner = playerWins ? "💪🏻 Player wins!" : "Opponent wins 😭"
     }
     
     // TODO: Think about turning this into an UseCase
