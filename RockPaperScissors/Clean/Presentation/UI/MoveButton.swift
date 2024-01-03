@@ -3,6 +3,7 @@ import SwiftUI
 struct MoveButton: View {
     let move: GameMove
     @Binding var selected: Bool
+    @Binding var enabled: Bool
     let action: () -> Void
     
     var body: some View {
@@ -13,6 +14,7 @@ struct MoveButton: View {
             action()
         }
         .gameStyle()
+        .disabled(!enabled)
         .overlay {
             if selected {
                 RoundedRectangle(cornerSize: .init(width: 10, height: 10))
@@ -30,18 +32,19 @@ struct MoveButton: View {
 
 struct MoveButton_Previews: PreviewProvider {
     @State static var selected = false
+    @State static var enabled = true
     
     static var previews: some View {
         VStack(spacing: 40) {
             HStack(spacing: 20) {
-                MoveButton(move: .rock, selected: Self.$selected, action: {})
-                MoveButton(move: .paper, selected: Self.$selected, action: {})
-                MoveButton(move: .scissors, selected: Self.$selected, action: {})
+                MoveButton(move: .rock, selected: Self.$selected, enabled: self.$enabled, action: {})
+                MoveButton(move: .paper, selected: Self.$selected, enabled: self.$enabled, action: {})
+                MoveButton(move: .scissors, selected: Self.$selected, enabled: self.$enabled, action: {})
             }
             
             HStack(spacing: 20) {
-                MoveButton(move: .scissors, selected: Self.$selected, action: {})
-                MoveButton(move: .scissors, selected: Self.$selected, action: {})
+                MoveButton(move: .scissors, selected: Self.$selected, enabled: self.$enabled, action: {})
+                MoveButton(move: .scissors, selected: Self.$selected, enabled: self.$enabled, action: {})
             }
         }
     }

@@ -10,9 +10,8 @@ import SwiftUI
 struct PlayerBoardView: View {
     @ObservedObject var viewModel: GameViewModel
     
-    @State private var buttonsState: [Bool] = [
-        false, false, false
-    ]
+    @State private var buttonsState: [Bool] = Array(repeating: false, count: 3)
+    @State private var buttonsEnabled: [Bool] = Array(repeating: true, count: 3)
         
     var body: some View {
         VStack {
@@ -26,11 +25,13 @@ struct PlayerBoardView: View {
             HStack {
                 ForEach(GameMove.allCases, id: \.self) { move in
                     MoveButton(move: move, 
-                               selected: $buttonsState[move.rawValue],
+                               selected: $buttonsState[move.rawValue], 
+                               enabled: $buttonsEnabled[move.rawValue],
                                action: {
+                        self.disableButtons()
+                        
                         viewModel.player(move: move)
                     })
-                    // TODO: Avoid multiple taps
                 }
             }
         }
@@ -39,8 +40,13 @@ struct PlayerBoardView: View {
         }
     }
     
+    private func disableButtons() {
+        buttonsEnabled = Array(repeating: false, count: 3)
+    }
+    
     private func resetButtonsState() {
-        buttonsState = [false, false, false]
+        buttonsState = Array(repeating: false, count: 3)
+        buttonsEnabled = Array(repeating: true, count: 3)
     }
 }
 
