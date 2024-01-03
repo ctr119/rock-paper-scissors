@@ -31,16 +31,8 @@ class GameViewModel: ObservableObject {
     
     func player(move playerMove: GameMove) {
         defer {
-            // Trigger the event for alawys clearing the player's buttons
-            shouldClearPlayerButtons.toggle()
-            
-            roundsLeft -= 1
-            
-            if roundsLeft > 0 {
-                roundsIndex += 1
-            } else {
-                gameOverMessage = buildGameOverMessage()
-                isGameOver = true
+            Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
+                self.finishRound()
             }
         }
         
@@ -66,6 +58,21 @@ class GameViewModel: ObservableObject {
         let move = GameMove(rawValue: moveIndex)
         
         return move ?? .rock
+    }
+    
+    private func finishRound() {
+        // Trigger the event for alawys clearing the player's buttons
+        shouldClearPlayerButtons.toggle()
+        
+        roundsLeft -= 1
+        
+        if roundsLeft > 0 {
+            botMove = nil
+            roundsIndex += 1
+        } else {
+            gameOverMessage = buildGameOverMessage()
+            isGameOver = true
+        }
     }
     
     private func buildGameOverMessage() -> String {
