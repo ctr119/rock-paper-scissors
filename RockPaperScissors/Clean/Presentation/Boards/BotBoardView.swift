@@ -32,6 +32,7 @@ struct BotBoardView: View {
                         .degrees(viewModel.botMove != nil ? 360 : 0),
                         axis: (x: 0.0, y: 1.0, z: 0.0)
                     )
+                    .scaleEffect(viewModel.botMove != nil ? 1.2 : 0.7)
                     .animation(.bouncy, value: viewModel.botMove)
             }
         }
