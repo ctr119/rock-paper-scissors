@@ -18,7 +18,7 @@ private struct IconButtonStyle: ButtonStyle {
         let gradient: RadialGradient = .init(colors: [.white, .gray.opacity(highlighted(configuration))],
                                              center: .center,
                                              startRadius: 0,
-                                             endRadius: 45)
+                                             endRadius: 40)
         
         return configuration.label
             .font(.largeTitle)
