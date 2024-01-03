@@ -32,6 +32,17 @@ struct GameView: View {
                     .font(.footnote.monospaced())
             }
             .padding()
+            
+            /// Putting the `if` statement directly under `ZStack` will make the transition
+            /// to not work as intended. Might be related to how `ZStack` align its content.
+            /// Embedding it into a `VStack` fixes the transition.
+            VStack {
+                if let winner = viewModel.roundWinner {
+                    Text(winner)
+                        .transition(.push(from: .top))
+                }
+            }
+            .animation(.default, value: viewModel.roundWinner)
         }
         .gameOver(alert: .init(title: "Finish!", message: viewModel.gameOverMessage),
                   when: $viewModel.isGameOver,

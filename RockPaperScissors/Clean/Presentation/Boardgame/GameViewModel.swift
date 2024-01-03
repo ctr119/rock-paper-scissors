@@ -19,6 +19,7 @@ class GameViewModel: ObservableObject {
     @Published var shouldClearPlayerButtons = false
     @Published var botScore = 0
     @Published var botMove: GameMove?
+    @Published var roundWinner: String?
     @Published var isGameOver = false
     
     private(set) var roundsLeft: Int
@@ -41,6 +42,7 @@ class GameViewModel: ObservableObject {
         
         guard let playerWins = playerMove.wins(botMove) else {
             // TODO: Draw! Let's try to improve here
+            roundWinner = "DRAW!"
             return
         }
         
@@ -49,6 +51,8 @@ class GameViewModel: ObservableObject {
         } else {
             botScore += 1
         }
+        
+        roundWinner = playerWins ? "Player wins!" : "Opponent wins"
     }
     
     // TODO: Think about turning this into an UseCase
@@ -64,6 +68,7 @@ class GameViewModel: ObservableObject {
         // Trigger the event for alawys clearing the player's buttons
         shouldClearPlayerButtons.toggle()
         
+        roundWinner = nil
         roundsLeft -= 1
         
         if roundsLeft > 0 {
