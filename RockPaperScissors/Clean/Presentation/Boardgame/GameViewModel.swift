@@ -26,6 +26,8 @@ class GameViewModel: ObservableObject {
     private(set) var roundsIndex = 1
     private(set) var gameOverMessage: String = ""
     
+    private var drawsCount: Int = 0
+    
     private let getOpponentsMoveUseCase: GetOpponentsMoveUseCase
     
     init(getOpponentsMoveUseCase: GetOpponentsMoveUseCase = .init()) {
@@ -44,7 +46,7 @@ class GameViewModel: ObservableObject {
         self.botMove = botMove
         
         guard let playerWins = playerMove.wins(botMove) else {
-            // TODO: Draw! Let's try to improve here
+            drawsCount += 1
             roundWinner = "🔥 DRAW 🔥"
             return
         }
@@ -75,14 +77,20 @@ class GameViewModel: ObservableObject {
     }
     
     private func buildGameOverMessage() -> String {
-        // TODO: Add the draws
+        let beginning = getMessageBeginning()
+        let body = "Player: \(playerScore)\nOpponent: \(botScore)"
+        let footer = "Draws: \(drawsCount)"
         
+        return beginning + "\n\n" + body + "\n\n" + footer
+    }
+    
+    private func getMessageBeginning() -> String {
         if playerScore == botScore {
-            return "Draw! 🫠\nBoth got \(playerScore) points"
+            return "Draw! 🫠"
         } else if playerScore > botScore {
-            return "You won! 🥳\nPlayer: \(playerScore)\nOpponent: \(botScore)"
+            return "You won! 🥳"
         } else {
-            return "You lost! 😵\nPlayer: \(playerScore)\nOpponent: \(botScore)"
+            return "You lost! 😵"
         }
     }
     
@@ -91,6 +99,7 @@ class GameViewModel: ObservableObject {
         
         playerScore = 0
         botScore = 0
+        drawsCount = 0
         
         roundsLeft = Self.maxRounds
         roundsIndex = 1
