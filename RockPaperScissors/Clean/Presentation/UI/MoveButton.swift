@@ -44,7 +44,7 @@ struct MoveButton_Previews: PreviewProvider {
             
             HStack(spacing: 20) {
                 MoveButton(move: .scissors, selected: Self.$selected, enabled: self.$enabled, action: {})
-                MoveButton(move: .scissors, selected: Self.$selected, enabled: self.$enabled, action: {})
+                MoveButton(move: .scissors, selected: Self.$selected, enabled: .constant(false), action: {})
             }
         }
     }
