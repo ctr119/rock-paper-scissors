@@ -13,6 +13,7 @@ struct CustomText {
         
         enum Primary {}
         enum Secondary {}
+        enum Tertiary {}
     }
     
     struct Configuration {

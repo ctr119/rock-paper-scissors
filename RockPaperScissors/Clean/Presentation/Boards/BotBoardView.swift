@@ -22,7 +22,8 @@ struct BotBoardView: View {
             
             VStack(spacing: 10) {
                 Text("Chosen move")
-                    .font(.footnote.monospaced())
+                    .customTextStyle(.Tertiary.bold)
+                
                 Text(chosenMove)
                     .font(.largeTitle)
                     .padding()
