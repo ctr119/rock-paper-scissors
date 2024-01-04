@@ -17,6 +17,7 @@
 		206BA40C2B46C4950036C240 /* CustomTextStyle+Primary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BA40B2B46C4950036C240 /* CustomTextStyle+Primary.swift */; };
 		206BA40E2B46C4F10036C240 /* CustomTextStyle+Secondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BA40D2B46C4F10036C240 /* CustomTextStyle+Secondary.swift */; };
 		206BA4102B46C9370036C240 /* CustomTextStyle+Tertiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BA40F2B46C9370036C240 /* CustomTextStyle+Tertiary.swift */; };
+		206BA4122B46CCD80036C240 /* GetOpponentsMoveUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206BA4112B46CCD80036C240 /* GetOpponentsMoveUseCase.swift */; };
 		3E5ABACB2AE3308B0089A3C9 /* RockPaperScissorsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABACA2AE3308B0089A3C9 /* RockPaperScissorsApp.swift */; };
 		3E5ABACD2AE3308B0089A3C9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5ABACC2AE3308B0089A3C9 /* GameView.swift */; };
 		3E5ABACF2AE3308D0089A3C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5ABACE2AE3308D0089A3C9 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		206BA40B2B46C4950036C240 /* CustomTextStyle+Primary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTextStyle+Primary.swift"; sourceTree = "<group>"; };
 		206BA40D2B46C4F10036C240 /* CustomTextStyle+Secondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTextStyle+Secondary.swift"; sourceTree = "<group>"; };
 		206BA40F2B46C9370036C240 /* CustomTextStyle+Tertiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTextStyle+Tertiary.swift"; sourceTree = "<group>"; };
+		206BA4112B46CCD80036C240 /* GetOpponentsMoveUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOpponentsMoveUseCase.swift; sourceTree = "<group>"; };
 		3E5ABAC72AE3308B0089A3C9 /* RockPaperScissors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RockPaperScissors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E5ABACA2AE3308B0089A3C9 /* RockPaperScissorsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsApp.swift; sourceTree = "<group>"; };
 		3E5ABACC2AE3308B0089A3C9 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				205713D22B3ED9FD009CF265 /* Model */,
+				206BA4112B46CCD80036C240 /* GetOpponentsMoveUseCase.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				3E5ABAD92AE333320089A3C9 /* GameMove.swift in Sources */,
 				206BA4082B46C2430036C240 /* CustomText.swift in Sources */,
 				3E5ABADF2AE53D030089A3C9 /* BoardModifier.swift in Sources */,
+				206BA4122B46CCD80036C240 /* GetOpponentsMoveUseCase.swift in Sources */,
 				205713D02B3ED968009CF265 /* GameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

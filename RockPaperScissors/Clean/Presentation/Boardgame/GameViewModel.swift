@@ -26,8 +26,11 @@ class GameViewModel: ObservableObject {
     private(set) var roundsIndex = 1
     private(set) var gameOverMessage: String = ""
     
-    init() {
+    private let getOpponentsMoveUseCase: GetOpponentsMoveUseCase
+    
+    init(getOpponentsMoveUseCase: GetOpponentsMoveUseCase = .init()) {
         self.roundsLeft = Self.maxRounds
+        self.getOpponentsMoveUseCase = getOpponentsMoveUseCase
     }
     
     func player(move playerMove: GameMove) {
@@ -37,7 +40,7 @@ class GameViewModel: ObservableObject {
             }
         }
         
-        let botMove = generateBotMove()
+        let botMove = getOpponentsMoveUseCase()
         self.botMove = botMove
         
         guard let playerWins = playerMove.wins(botMove) else {
@@ -53,15 +56,6 @@ class GameViewModel: ObservableObject {
         }
         
         roundWinner = playerWins ? "💪🏻 Player wins!" : "Opponent wins 😭"
-    }
-    
-    // TODO: Think about turning this into an UseCase
-    private func generateBotMove() -> GameMove {
-        let upperBound = GameMove.allCases.count - 1
-        let moveIndex = Int.random(in: 0...upperBound)
-        let move = GameMove(rawValue: moveIndex)
-        
-        return move ?? .rock
     }
     
     private func finishRound() {
