@@ -44,6 +44,7 @@ struct GameView: View {
                             .lowercaseSmallCaps()
                             .weight(.regular)
                         )
+                        .foregroundStyle(Color.white.opacity(0.7))
                         .transition(.push(from: .top))
                 }
             }
