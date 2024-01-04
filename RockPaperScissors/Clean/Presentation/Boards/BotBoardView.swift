@@ -14,10 +14,11 @@ struct BotBoardView: View {
         VStack(spacing: 25) {
             VStack {
                 Text("- Opponent's points -")
+                    .customTextStyle(.Primary.thin)
+                
                 Text("\(viewModel.botScore)")
-                    .fontWeight(.bold)
+                    .customTextStyle(.Primary.regular)
             }
-            .customHeadline()
             
             VStack(spacing: 10) {
                 Text("Chosen move")

@@ -29,7 +29,7 @@ struct GameView: View {
                 Spacer()
                 
                 Text("Round \(viewModel.roundsIndex) of \(GameViewModel.maxRounds)")
-                    .font(.footnote.monospaced())
+                    .customTextStyle(.Secondary.regular)
             }
             .padding()
             
@@ -39,11 +39,7 @@ struct GameView: View {
             VStack {
                 if let winner = viewModel.roundWinner {
                     Text(winner)
-                        .font(
-                            .headline
-                            .lowercaseSmallCaps()
-                            .weight(.regular)
-                        )
+                        .customTextStyle(.Secondary.regular)
                         .foregroundStyle(Color.white.opacity(0.7))
                         .transition(.push(from: .top))
                 }

@@ -17,10 +17,11 @@ struct PlayerBoardView: View {
         VStack {
             VStack {
                 Text("- Your points -")
+                    .customTextStyle(.Primary.thin)
+                
                 Text("\(viewModel.playerScore)")
-                    .fontWeight(.bold)
+                    .customTextStyle(.Primary.regular)
             }
-            .customHeadline()
             
             HStack {
                 ForEach(GameMove.allCases, id: \.self) { move in
